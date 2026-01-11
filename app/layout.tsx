@@ -1,11 +1,23 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 
-const manrope = Manrope({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -29,7 +41,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${manrope.variable} bg-background-dark font-display text-white antialiased`}
+        className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable} bg-background-dark font-display text-white antialiased`}
       >
         <CustomCursor />
         <div className="relative flex min-h-screen w-full flex-col">
