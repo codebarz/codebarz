@@ -28,7 +28,7 @@ function ClientLogo({ name }: { name: string }) {
 export default function V2Clients() {
   return (
     <section className="border-b border-white/5 bg-black py-20 overflow-hidden">
-      <div className="flex w-full flex-col items-center gap-6 px-6 max-w-[1440px] mx-auto pl-0 md:pl-12 lg:pl-16">
+      <div className="flex w-full flex-col items-center gap-6 px-6 max-w-[1440px] mx-auto">
         <ScrollReveal variant="fade" duration={600}>
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-600">
             Trusted by teams at

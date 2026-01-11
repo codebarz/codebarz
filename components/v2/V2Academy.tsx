@@ -32,7 +32,7 @@ export default function V2Academy() {
       className="relative w-full border-y border-white/5 bg-black py-32"
       id="academy"
     >
-      <div className="relative w-full px-6 md:px-12 max-w-[1440px] mx-auto pl-0 md:pl-12 lg:pl-16">
+      <div className="relative w-full px-6 md:px-12 lg:pl-16 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-5">
             <ScrollReveal variant="fade-up" duration={600}>
