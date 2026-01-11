@@ -8,4 +8,5 @@ export { default as V2OpenSource } from "./V2OpenSource";
 export { default as V2Contact } from "./V2Contact";
 export { default as V2Footer } from "./V2Footer";
 export { default as ScrollLogo } from "./ScrollLogo";
+export { default as LightningFlash } from "./LightningFlash";
 

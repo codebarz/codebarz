@@ -9,6 +9,7 @@ import {
   V2Contact,
   V2Footer,
   ScrollLogo,
+  LightningFlash,
 } from "@/components/v2";
 
 export const metadata = {
@@ -20,6 +21,9 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="bg-black text-slate-300 font-sans antialiased selection:bg-white selection:text-black">
+      {/* Lightning flash effect - appears on scroll */}
+      <LightningFlash />
+      
       <div className="flex min-h-screen w-full flex-col items-center overflow-x-hidden">
         <div id="v2-content" className="w-full max-w-[1440px] relative min-h-screen">
           {/* Scroll progress indicator */}
