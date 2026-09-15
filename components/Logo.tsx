@@ -7,16 +7,16 @@ interface LogoProps {
 }
 
 const sizes = {
-  sm: { width: 100, height: 24 },
-  md: { width: 130, height: 32 },
-  lg: { width: 160, height: 40 },
+  sm: { width: 120, height: 21 },
+  md: { width: 144, height: 25 },
+  lg: { width: 180, height: 31 },
 };
 
 export default function Logo({ className = "", size = "md" }: LogoProps) {
   const { width, height } = sizes[size];
 
   return (
-    <Link href="/" className={`flex items-center ${className}`}>
+    <Link href="/" className={`flex shrink-0 items-center ${className}`}>
       <Image
         src="/codebarz-white-logo.svg"
         alt="Codebarz - Back to homepage"

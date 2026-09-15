@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
+import Logo from "../Logo";
 import { Mail, Github, Terminal, AtSign } from "lucide-react";
 
 const footerLinks = {
@@ -28,15 +27,7 @@ export default function V2Footer() {
       <div className="max-w-[1440px] mx-auto pl-0 md:pl-12 lg:pl-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/codebarz-logo-white.png"
-                alt="Codebarz"
-                width={120}
-                height={30}
-                className="h-auto"
-              />
-            </Link>
+            <Logo />
             <h3 className="font-display text-3xl font-bold text-white tracking-tight">
               Ship Faster. Scale Further.
             </h3>

@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import Logo from "../Logo";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -35,18 +34,9 @@ export default function V2Header() {
       <div className="flex justify-center w-full">
         <div className="w-full max-w-[1440px] flex pl-0 md:pl-12 lg:pl-16">
           <div className="w-full px-6 md:px-12 flex items-center justify-between py-5">
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/codebarz-logo-white.png"
-                alt="Codebarz"
-                width={120}
-                height={30}
-                priority
-                className="h-auto"
-              />
-            </Link>
+            <Logo />
 
-            <nav className="hidden md:flex items-center gap-10">
+            <nav className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
@@ -59,13 +49,15 @@ export default function V2Header() {
               ))}
             </nav>
 
-            <button className="hidden md:flex cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-2 text-white text-xs font-semibold uppercase tracking-wide transition-all hover:bg-white hover:text-black active:scale-95 backdrop-blur-md">
+            <button className="hidden lg:flex cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-2 text-white text-xs font-semibold uppercase tracking-wide transition-all hover:bg-white hover:text-black active:scale-95 backdrop-blur-md">
               Contact Us
             </button>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2"
+              className="lg:hidden text-white p-2"
+              aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" strokeWidth={1.5} />
@@ -79,7 +71,7 @@ export default function V2Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ${
           isMobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
