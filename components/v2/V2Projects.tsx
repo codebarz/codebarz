@@ -43,7 +43,7 @@ export default function V2Projects() {
   const others = projects.filter(p => !p.featured);
 
   return (
-    <section className="w-full px-6 py-32 md:px-12" id="projects">
+    <section className="w-full scroll-mt-24 px-6 py-32 md:px-12" id="projects" tabIndex={-1}>
       <div className="w-full max-w-[1440px] mx-auto pl-0 md:pl-12 lg:pl-16">
         <div className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>

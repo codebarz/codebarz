@@ -108,7 +108,7 @@ function FloatingTextarea({ label, Icon }: { label: string; Icon: React.ElementT
 
 export default function V2Contact() {
   return (
-    <section id="contact" className="w-full border-t border-white/5 bg-black px-6 py-32 md:px-12">
+    <section id="contact" tabIndex={-1} className="w-full scroll-mt-24 border-t border-white/5 bg-black px-6 py-32 md:px-12">
       <div className="flex w-full flex-col gap-20 lg:flex-row max-w-[1440px] mx-auto pl-0 md:pl-12 lg:pl-16">
         <div className="flex-1">
           <ScrollReveal variant="fade-up" duration={600}>

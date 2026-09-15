@@ -1,92 +1,100 @@
-"use client";
+import Image from "next/image";
+import { ArrowRight, ArrowUpRight, Braces, Layers3, Sparkles } from "lucide-react";
+import styles from "./V2Hero.module.css";
 
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import ScrollReveal from "../ScrollReveal";
+const connections = [
+  "M90 98 V110 C90 151 160 118 160 167",
+  "M390 98 V110 C390 151 320 118 320 167",
+  "M240 204 V264",
+];
+
+function ServicesDiagram() {
+  return (
+    <figure className={styles.figure} id="services" tabIndex={-1} aria-labelledby="services-caption">
+      <div className={styles.figureHeader}>
+        <span className={styles.figureEyebrow}>Connected by design</span>
+      </div>
+
+      <div className={styles.diagram}>
+        <svg className={styles.connections} viewBox="0 0 480 340" fill="none" aria-hidden="true">
+          <ellipse cx="240" cy="170" rx="146" ry="105" className={styles.orbit} />
+          <ellipse cx="240" cy="170" rx="192" ry="144" className={styles.outerOrbit} />
+          {connections.map((path, index) => (
+            <g key={path}>
+              <path d={path} className={styles.connection} />
+              <path d={path} pathLength="100" className={styles.signal} style={{ animationDelay: `${index * 0.3}s` }} />
+            </g>
+          ))}
+        </svg>
+
+        <div className={`${styles.service} ${styles.web}`}>
+          <Layers3 size={19} strokeWidth={1.5} aria-hidden="true" />
+          <span>Web platforms</span>
+        </div>
+        <div className={`${styles.service} ${styles.ai}`}>
+          <Sparkles size={19} strokeWidth={1.5} aria-hidden="true" />
+          <span>AI products</span>
+        </div>
+        <div className={styles.hub}>
+          <Image src="/codebarz-white-logo.svg" alt="Codebarz" width={120} height={21} className="h-auto" />
+          <span>Every layer. One team.</span>
+        </div>
+        <div className={`${styles.service} ${styles.api}`}>
+          <Braces size={19} strokeWidth={1.5} aria-hidden="true" />
+          <span>APIs &amp; integrations</span>
+        </div>
+      </div>
+
+      <figcaption id="services-caption" className={styles.figureCaption}>
+        <span>One product. Every layer connected.</span>
+      </figcaption>
+    </figure>
+  );
+}
 
 export default function V2Hero() {
   return (
-    <section className="relative flex w-full flex-col justify-center px-6 pt-40 pb-20 md:px-12 min-h-screen">
-      <div className="flex w-full flex-col gap-16 lg:flex-row lg:items-end max-w-[1440px] mx-auto pl-0 md:pl-12 lg:pl-16">
-        <div className="flex flex-1 flex-col gap-8 text-left z-10">
-          <ScrollReveal variant="fade-up" duration={600}>
-            <div className="inline-flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              <span className="font-mono text-xs text-slate-300">
-                ACCEPTING NEW PROJECTS
-              </span>
-            </div>
-          </ScrollReveal>
+    <section className={styles.hero} aria-labelledby="hero-heading">
+      <div className={styles.layout}>
+        <div className={styles.copy}>
+          <div className={styles.availability}>
+            <span className={styles.statusDot} aria-hidden="true" />
+            Accepting new projects
+          </div>
 
-          <ScrollReveal variant="fade-up" delay={100} duration={800}>
-            <h1 className="font-display text-6xl font-bold leading-[0.9] tracking-tighter text-white sm:text-7xl md:text-8xl lg:text-[7rem]">
-              We Build What <br />
-              <span className="animate-shimmer-v2">
-                Others Can&apos;t.
-              </span>
-            </h1>
-          </ScrollReveal>
+          <h1 id="hero-heading" className={styles.heading}>
+            <span>Complex software.</span>
+            <span className={styles.secondaryLine}>Built to scale.</span>
+          </h1>
 
-          <ScrollReveal variant="fade-up" delay={200} duration={800}>
-            <p className="max-w-2xl text-xl font-light leading-relaxed text-slate-400">
-              Elite software engineering for companies that refuse to compromise.
-              From complex distributed systems to AI-powered platforms—we turn
-              ambitious ideas into production-grade reality.
-            </p>
-          </ScrollReveal>
+          <p className={styles.description}>
+            We design, build, and scale web platforms, APIs, and AI products for ambitious teams.
+          </p>
 
-          <ScrollReveal variant="fade-up" delay={300} duration={800}>
-            <div className="flex flex-wrap gap-6 pt-4">
-              <button className="group relative flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-black text-sm font-bold uppercase tracking-wide transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] active:scale-95">
-                Start a Project
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
-              </button>
-              <button className="group flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-4 text-white text-sm font-bold uppercase tracking-wide transition-all duration-300 hover:bg-white/10 hover:border-white/40 active:scale-95">
-                View Case Studies
-                <ArrowUpRight className="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" strokeWidth={2} />
-              </button>
-            </div>
-          </ScrollReveal>
+          <div className={styles.actions}>
+            <a href="#contact" className={styles.primaryAction}>
+              Discuss your project
+              <ArrowRight size={17} strokeWidth={1.75} aria-hidden="true" />
+            </a>
+            <a href="#projects" className={styles.secondaryAction}>
+              View our work
+              <ArrowUpRight size={17} strokeWidth={1.75} aria-hidden="true" />
+            </a>
+          </div>
+
+          <p className={styles.supportingLine}>From your first release to your next stage of growth.</p>
         </div>
 
-        <ScrollReveal
-          variant="fade-left"
-          delay={400}
-          duration={1000}
-          className="relative flex flex-1 items-center justify-center lg:justify-end lg:h-[600px] h-[400px]"
-        >
-          <div className="absolute w-full h-full flex items-center justify-center">
-            {/* Spinning circles */}
-            <div className="w-64 h-64 border border-white/10 rounded-full animate-spin-slow"></div>
-            <div className="absolute w-96 h-96 border border-white/5 rounded-full animate-spin-slow-reverse"></div>
-            <div className="absolute w-[30rem] h-[30rem] border border-dashed border-white/5 rounded-full animate-spin-slowest"></div>
+        <ServicesDiagram />
+      </div>
 
-            {/* Stats card */}
-            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 backdrop-blur-xl bg-black/80 border border-white/10 p-6 rounded-2xl shadow-2xl w-72 animate-float-card animate-glow-pulse">
-              <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-4">
-                <span className="text-xs font-mono text-slate-500">PROJECTS SHIPPED</span>
-                <span className="text-xs font-mono text-green-400 flex items-center gap-1">
-                  <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                  150+
-                </span>
-              </div>
-              <div className="space-y-3">
-                <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                  <div className="h-full bg-white rounded-full animate-progress"></div>
-                </div>
-                <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                  <div className="h-full bg-slate-500 rounded-full animate-progress-half"></div>
-                </div>
-                <div className="flex justify-between pt-2">
-                  <span className="text-xs font-mono text-slate-500">CLIENT RETENTION</span>
-                  <span className="text-xs font-mono text-white">98%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
+      <div className={styles.process} aria-label="Our approach">
+        <span className={styles.processIntro}>Engineering, end to end.</span>
+        <ol>
+          <li><span>01</span> Plan</li>
+          <li><span>02</span> Build</li>
+          <li><span>03</span> Scale</li>
+        </ol>
       </div>
     </section>
   );

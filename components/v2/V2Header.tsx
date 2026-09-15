@@ -49,15 +49,16 @@ export default function V2Header() {
               ))}
             </nav>
 
-            <button className="hidden lg:flex cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-2 text-white text-xs font-semibold uppercase tracking-wide transition-all hover:bg-white hover:text-black active:scale-95 backdrop-blur-md">
+            <a href="#contact" className="hidden lg:flex cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-2 text-white text-xs font-semibold uppercase tracking-wide transition-all hover:bg-white hover:text-black active:scale-95 backdrop-blur-md">
               Contact Us
-            </button>
+            </a>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden text-white p-2"
               aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"}
               aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" strokeWidth={1.5} />
@@ -71,6 +72,9 @@ export default function V2Header() {
 
       {/* Mobile Menu */}
       <div
+        id="mobile-navigation"
+        inert={!isMobileMenuOpen}
+        aria-hidden={!isMobileMenuOpen}
         className={`lg:hidden overflow-hidden transition-all duration-300 ${
           isMobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
         }`}
@@ -86,9 +90,9 @@ export default function V2Header() {
               {link.label}
             </a>
           ))}
-          <button className="mt-4 w-full rounded-full border border-white/20 bg-white/5 px-6 py-3 text-white text-xs font-semibold uppercase tracking-wide">
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 w-full text-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-white text-xs font-semibold uppercase tracking-wide">
             Contact Us
-          </button>
+          </a>
         </div>
       </div>
     </header>
